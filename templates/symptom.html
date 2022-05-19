@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block symptom_page %}
+	<section id="faq" class="faq section-bg">
+		<div class="container">
+			<img src="{{url_for ('static', filename = 'img/misc/shutterstock_1284537988 (1).jpg')}}" alt = 'sign' width="600" height="400" align='right'>
+			<h2>Akıllı Asistan'a Sorun</h2>
+			<p>Akıllı Asistanımız sağ altta yer almaktadır. Size yardımcı olmak için her zaman hazır.</p>
+			<p>Aklınıza takılan her şeyi asistana danışabilirsiniz.</p>
+		</div>
+		<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+		<df-messenger
+		intent="WELCOME"
+		chat-title="Bana Her şeyi Sorabilirsin!"
+		agent-id="5d4b1b60-77de-475a-a329-78fdcb753f39"
+		language-code="en"
+		></df-messenger>
+	</section>
+
+{% endblock %}

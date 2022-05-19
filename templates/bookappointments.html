@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block bookappointment_page %}
+	<script>
+		function select_speciality(){
+			var speciality = document.getElementById('specialities').value;
+			if (speciality=="Anestezi"){
+				var array = ['Doç.Dr. GÜLÇİN AYDIN', 'Dr. IŞIN GENÇAY','Dr.KEVSER PEKER']
+			}
+			else if(speciality=="Enfeksiyon Hastalıkları ve Klinik Mikrobiyoloji"){
+				var array = ['Prof.Dr. SEDAT KAYGUSUZ ', 'Prof.Dr. BİRGÜL KAÇMAZ','Doç.Dr.SERDAR GÜL']
+
+			}
+			else if(speciality=="Nöroloji"){
+				var array = ['Prof.Dr.UFUK ERGÜN ','Prof. Dr.ÖZLEM COŞKUN', 'Dr. MURAT ALPUA','Dr.BAHAR SAY']
+			}
+			else if(speciality=="Psikiyatri"){
+				var array = ['Prof.Dr.ŞADİYE VİSAL BUTURAK ','Dr. HANİFE KOCAKAYA']
+			}
+			else if(speciality=="Ortopedi ve Travmatoloji"){
+				var array = ['Prof.Dr.MERİÇ ÇIRPAR ','Doç.Dr. SANCAR SERBEST', 'Dr.İBRAHİM DENİZ CANBEYLİ', 'Dr.BİRHAN OKTAŞ']
+			}
+			else if(speciality=="Kardiyoloji"){
+				var array = ['Prof.Dr.HAKSUN EBİNÇ ','Prof.Dr.MEHMET TOLGA DOĞRU','Prof.Dr.NESLİGÜL YILDIRIM','Doç.Dr.MUHAMMED KARADENİZ']
+			}
+			else if(speciality=="İç Hastalıkları (Dahiliye)"){
+				var array = ['Prof.Dr.ARİF ALPER KIRKPANTUR','Prof.Dr.UĞUR COŞKUN', 'Prof.Dr.ALPASLAN KILIÇARSLAN', 'Prof.Dr.ZEKERİYA ÜLGER']
+			}
+			else if(speciality=="Dermatoloji (Cildiye)"){
+				var array = ['Dr. ÖZGÜR GÜNDÜZ', 'Dr. TUBA BETÜL KARADENİZ']
+			}
+
+			var string = ""
+			for( i=0; i< array.length;i++){
+				string = string + '<option>'+ array[i]+ '</option>'
+			}
+
+			document.getElementById("doctors").innerHTML = string;
+		}
+
+		function setAppointment(){
+			var string = '<h4>'+"Randevunuz başarıyla planlandı!"+'</h4>'
+							+'<h4>'+"Randevunuzla ilgili sizinle iletişime geçilecektir. Sağlıklı Günler Dileriz!"+'</h4>'
+			document.getElementById("AppointmentSet").innerHTML = string;
+		}
+	</script>
+ 	<section id="contact" class="contact">
+ 		<div class="container">
+                <div class="section-title">
+                  <h2>Randevu Al</h2>
+				</div>
+				<div class="col mt-5 mt-lg-0">
+	  
+					  <form action="#" method="POST" role="form" class="php-bookAppointment-form" onsubmit="return validate() ">
+	  
+						<div class="form-group">
+							<input type="date" name="fname" class="form-control" id="name" placeholder="Adınız" data-rule="minlen:3" data-msg="Lütfen en az 3 karakter giriniz." required/>
+							<div class="validate"></div>
+						</div>
+	  
+						<div class="form-group">
+							<select id= "specialities" class="form-control" placeholder="Select speciality" onchange="select_speciality()" required>
+								<option value="none" selected disabled hidden> 
+									Klinik Seçiniz
+								</option>
+								<option>Anestezi</option>
+                                <option>Dermatoloji (Cildiye)</option>
+								<option>Enfeksiyon Hastalıkları ve Klinik Mikrobiyoloji</option>
+                                <option>İç Hastalıkları (Dahiliye)</option>
+                                <option>Kardiyoloji</option>
+								<option>Nöroloji</option>
+								<option>Ortopedi ve Travmatoloji</option>
+                                <option>Psikiyatri </option>
+							</select>						  
+							<div class="validate"></div>
+						</div>
+						<div>
+							
+						</div>
+						<div class="form-group">
+							<select id = "doctors" class="form-control" select="none" required>
+								<option value="none" selected disabled hidden>
+									Doktor Seçiniz
+								</option>
+							</select>
+							<div class="validate"></div>
+						</div>
+
+						
+						<div class="text-center"><p><a href="#" class="appointment-btn scrollto" type="submit" onclick="setAppointment()">Randevu Al</a></p></div>
+                 		<div class="text-center">{{msg}}</div>
+
+                </form>
+					</div><!-- col end-->
+					<div class="section-title" id="AppointmentSet">
+					</div>
+			<div class="section-title">
+                  <h2>Online Randevu</h2>
+				</div>
+	  <p> Randevu aldığınız toplantıya katılım sağlayabilmeniz açısından aşağıda belirtilen linkten doktorunuzla online görüşmenize katılabilirsiniz.
+				<a href="https://zoom.us/join">Doktorunuzla online görüşmenizi sağlamak için tıklayınız</a></p>
+
+			   
+
+</div>
+
+</div>
+</section>
+
+
+{% endblock %}

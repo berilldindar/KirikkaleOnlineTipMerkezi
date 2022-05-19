@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+    <!-- ======= Services Section ======= -->
+        <section id="services" class="services">
+          <div class="container">
+
+            <div class="section-title">
+              <h2>Hizmetlerimiz</h2>
+              <p>Tarafımızca sunulan kapsamlı bir hizmet yelpazesi. Tüm bu hizmetlere hastalarımız evlerinin rahatlığında zahmetsizce erişilebilmektedir. Deneyiminizi olabildiğince keyifli hale getirmenize yardımcı olmak için çalışıyoruz. Uzman kadromuzla hastalıkta, sağlıkta yanınızdayız.</p>
+              <p>Sağlıklı Günler Dileriz.</p>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="icon-box">
+                  <div class="icon"><i class="icofont-heart-beat"></i></div>
+                  <h4><a href="{{ url_for('symptom') }}">Akıllı Asistan</a></h4>
+                  <p>İyi olup olmadığınızdan emin değil misiniz? Nasıl ilerleyeceğinizden emin değil misiniz? Bu sohbet robotu, karar vermenize yardımcı olmak için belirtilerinizi değerlendirmenize yardımcı olur.</p>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+                <div class="icon-box">
+                  <div class="icon"><i class="icofont-drug"></i></div>
+                  <h4><a href="{{ url_for('monthlySubs') }}">İlaç Temini</a></h4>
+                  <p>Hastanenin eczanesinden kapınıza kadar teslim edilen ilaçlar.</p>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+                <div class="icon-box">
+                  <div class="icon"><i class="icofont-ui-calendar"></i></div>
+                  <h4><a href="{{ url_for('monthlySubs') }}">Aylık Takip</a></h4>
+                  <p>Periyodik olarak teslim edilen ilaçlara ihtiyacınız varsa, sipariş teslim sürecini otomatikleştirmek için buradan bir abonelik ayarlayın.</p>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+                <div class="icon-box">
+                  <div class="icon"><i class="icofont-ui-note"></i></div>
+                  <h4><a href="{{ url_for('bookAppointments') }}">Randevu Alın</a></h4>
+                  <p>Evinizin rahatlığında size uygun bir zamanda randevu alın.</p>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+                <div class="icon-box">
+                  <div class="icon"><i class="icofont-home"></i></div>
+                  <h4><a href="{{ url_for('atHomeLab') }}">Evde Testler Hizmeti</a></h4>
+                  <p>Bazı laboratuvar testleri hastanın hastaneye gitmesini gerektirmez. Bu laboratuvar testleri ve bunların kullanılabilirliği hakkında daha fazla bilgi edinmek için bu bölümü ziyaret edin.</p>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+                <div class="icon-box">
+                  <div class="icon"><i class="icofont-autism"></i></div>
+                  <h4><a href="{{ url_for('medReminder') }}">Hatırlatıcınızı Ayarlayın</a></h4>
+                  <p>İlaçlarınızı düzenli olarak almayı unutmaya yatkınsanız, bir hatırlatıcı ayarlamak onları hatırlamanıza ve zamanında almanıza yardımcı olacaktır.</p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section><!-- End Services Section -->
+
+{% endblock %}

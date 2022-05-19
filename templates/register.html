@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block register_page %}
+
+    <section id="contact" class="contact">
+    
+        <div class="container">
+                <div class="section-title">
+                  <h2>Kayıt Ol</h2>
+                </div>
+            <div class="row mt-5">
+
+              <div class="col mt-5 mt-lg-0">
+
+                <form action="#" method="POST" role="form" class="php-email-form" onsubmit="return validate()">
+
+                  <div class="form-row">
+                    <div class="col-md-6 form-group">
+                      <input type="text" name="fname" class="form-control" id="name" placeholder="Adınız" data-rule="minlen:3" data-msg="Lütfen en az 3 karakter girin" />
+                      <div class="validate"></div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <input type="text" name="lname" class="form-control" id="name" placeholder="Soyadınız" data-rule="minlen:2" data-msg="Lütfen en az 2 karakter girin" />
+                      <!-- <input type="email" class="form-control" name="email" id="email" placeholder="Last Name" data-rule="email" data-msg="Please enter a valid email" /> -->
+                      <div class="validate"></div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                      <input type="text" class="form-control" type="email" id="email" pattern=".+@gmail.com" size="30" required name="email" id="subject" placeholder="Mail Adresiniz" />
+                      <!-- <input type="text" class="form-control" name="email" id="subject" placeholder="Your Email" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" /> -->
+                    <div class="validate"></div>
+                  </div>
+
+
+                  <div class="form-row">
+                    <div class="col-md-6 form-group">
+                      <input type="password" class="form-control" name="password" id="subject" placeholder="Şifreniz" minlength="8" required/>
+                      <!-- <input type="text" name="name" class="form-control" id="name" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /> -->
+                      <div class="validate"></div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                      <input type="password" class="form-control" name="cpassword" id="subject" placeholder="Şifreyi Tekrarla" minlength="8" required/>
+                      <!-- <input type="email" class="form-control" name="email" id="email" placeholder="Confirm Password" data-rule="email" data-msg="Please enter a valid email" /> -->
+                      <div class="validate"></div>
+                    </div>
+                  </div>
+                  
+                  
+                  <div class="text-center"><button type="submit">Kayıt Ol</button></div>
+                  <div class="text-center">{{msg}}</div>
+                  <div class="text-center"><a href='{{ url_for("login")}}'>Giriş Yap</a></div>
+
+                </form>
+
+              </div><!-- col end-->
+
+
+            </div>
+
+        </div>
+    </section>
+
+
+{% endblock %}

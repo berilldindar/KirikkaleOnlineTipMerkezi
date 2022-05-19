@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block cart_page %}
+	<div class="container">
+                <div class="section-title">
+                  <h2>Cart</h2>
+				</div>
+		<div align="left">
+			<a href="{{ url_for('meds') }}">Back to Medicines</a>
+		</div>
+		<div align="right">
+			<a href="{{ url_for('clear') }}">Clear Cart</a>
+		</div>
+		<div class="row no-gutters">
+		{% for i in items%}
+			<div class="col-lg-3 col-md-4">
+				<p>Name: {{i.item}}</p>
+				<p>Price: {{i.price}}</p>
+		        <p><img src="{{ url_for('static', filename = 'img/meds/'+i.item+'.jpeg') }}" alt=""
+				height="250" width="300"></p>
+
+	    	</div>
+		{% endfor %}
+
+		</div>
+		<div>
+			<h4><b>Total price = Rs. {{totalprice}}</b></h4>
+			<div class="text-center"><button type="submit" class="appointment-btn scrollto">Proceed to Checkout</button></div>
+		</div>
+	
+	</div>
+
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends "home.html" %}
+{% block navchange %}
+	<li><b>Hoşgeldin {{user}}! </b></li>
+    <li><a href="{{ url_for('monthlySubs') }}"><i class="icofont-shopping-cart"></i></a></li>
+    <li><a href="{{ url_for('logout') }}">Çıkış Yap</a></li>
+{% endblock %}

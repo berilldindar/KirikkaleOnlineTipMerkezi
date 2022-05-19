@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Kırıkkale Online Tıp Merkezi</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <style>
+    .goog-te-banner-frame.skiptranslate {display: none !important;}
+    body { top: 0px !important; }
+  </style>
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/jquery.easing/jquery.easing.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/venobox/venobox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/waypoints/jquery.waypoints.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/counterup/counterup.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/icofont/icofont.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/venobox/venobox.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/animate.css/animate.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet"/>
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type=text/css>
+
+
+  <!-- =======================================================
+  * Template Name: Medilab - v2.0.0
+  * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
+    <div class="container d-flex">
+      <marquee><b>Acil durumlar için 0850 304 00 71 ' i arayınız...</b></marquee>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo mr-auto"><i class="icofont-doctor-alt"></i><a href="{{ url_for('home') }}">Kırıkkale Online Tıp</a></h1>
+
+      <nav class="nav-menu d-none d-lg-block">
+      <ul>
+        <li><a href="{{ url_for('home') }}">Anasayfa</a></li>
+        <li><a href="{{ url_for('about') }}">Hakkımızda</a></li>
+        <li class="drop-down"><a href="{{ url_for('home') }}">Hizmetlerimiz</a>
+          <ul>
+            <li><a href="{{ url_for('symptom') }}">Akıllı Asistan</a></li>
+            <li><a href="{{ url_for('monthlySubs') }}">İlaç Kayıt</a></li>
+            <li><a href="{{ url_for('bookAppointments') }}">Randevu Al / Online Randevu </a></li>
+            <li><a href="{{ url_for('atHomeLab') }}">Evde Testler Hizmeti</a></li>
+            <li><a href="{{ url_for('medReminder') }}">İlaç Hatırlatıcı</a></li>
+          </ul>
+        </li>
+        <li><a href="{{ url_for('insurance') }}">Anlaşmalı Kurumlar</a></li>
+        <li><a href="{{ url_for('login') }}">Giriş Yap</a></li>
+        <li><a href="{{ url_for('register') }}">Kayıt Ol</a></li>
+
+        {% block navchange%}
+        {% endblock %}
+
+      </ul>
+
+    </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Sizin Sağlığınız, Bizim Önceliğimiz...</h2>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+
+
+
+  {% block content %}
+  <!-- HOME PAGE -->
+  {% endblock %}
+
+  {% block login_page %}
+  {% endblock %}
+
+  {% block register_page %}
+  {% endblock %}
+
+  {% block symptom_page %}
+  {% endblock %}
+
+  {% block insurance_page %}
+  {% endblock %}
+
+  {% block about_page %}
+  {% endblock %}
+
+  {% block bookappointment_page %}
+  {% endblock %}
+
+  {% block athome_page %}
+  {% endblock %}
+
+  {% block monthlySubs_page %}
+  {% endblock %}
+
+  {% block medReminder_page %}
+  {% endblock %}
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="container d-md-flex py-4">
+
+      <div class="mr-md-auto text-center text-md-left">
+        <div class="copyright">
+          &copy; 2022 Copyright <strong><span>BERİL DİNDAR tarafından geliştirilmiştir.</span></strong> Tüm hakları saklıdır.
+        </div>
+        <div class="credits">
+
+        </div>
+        <div id="google_translate_element"></div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+
+
+</body>
+</html>

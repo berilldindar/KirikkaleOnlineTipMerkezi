@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block meds_page %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+var  medicines = ["Ibuprofen","Crocin","Dolo","Gelusil","Accutane","Aspirin","Azathioprine","Citalopram","Diazepam","Albuterol","Allegra","Benydryl"]
+	$(document).on('keyup',"#search-input",function(){
+  var value = $(this).val()
+  var data = []
+  data = searchTable(value , medicines)
+
+  if(value !=''){
+    $('.close-button').fadeIn()
+    $('.results').fadeIn()
+  for(var i =0;i<data.length;i++){
+    var search_row = `<a href="{{ url_for('cart') }}">
+    <div class="result">
+      <div class="result-left">
+        <div class="result-name">${data[i]}</div>
+      </div>
+    </div>
+    </a>`
+
+    $('.results').prepend(search_row).fadeIn()
+    }
+  }
+  else{
+    $('.close-button').fadeOut()
+    $('.results').html("")
+    $('.results').fadeOut()
+    }
+});
+
+$(document).on('click','.close-button',function(){
+
+  $('.close-button').fadeOut()
+  $('.results').html("")
+  $('.results').fadeOut()
+  $('#search-input').val('')
+})
+
+
+function searchTable(value, data){
+	var result = document.getElementsByClassName('results')
+	$('.results').empty();
+	var filteredData = []
+	for (var i=0;i< data.length;i++){
+		value = value.toLowerCase()
+		var med = medicines[i].toLowerCase()
+			if(med.includes(value)){
+				filteredData.push(data[i])
+			}
+		}
+	return filteredData
+}
+
+</script>
+
+<div class="container-fluid">
+	<div class="row no-gutters">
+		<div class="col-md-6 form-group" style="transform:translate3d(0px, 0px, 0px); opacity:1;">
+	  		<h5>Seach Here</h5>
+		  </div>
+	</div>
+		<div class="form-row">
+			<div class="col-md-6 form-group" style="transform:translate3d(0px, 0px, 0px); opacity:1;">
+	  			<input type="input" id="search-input" class="form-control">
+	  			<span id="search-placeholder" class="search-placeholder"></span>
+	  		</div>
+			<div class="close-button" display="none">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		  		<line x1="18" y1="6" x2="6" y2="18"></line>
+		  		<line x1="6" y1="6" x2="18" y2="18"></line>
+				</svg>
+			</div>
+		</div>
+	<div class='results'></div>
+</div>
+
+
+	<section id="gallery" class="gallery">
+			<div class="container">
+				<div class="section-title">
+	          		<h2>Order Items</h2>
+	        	</div>
+	        </div>
+
+	    <div class="container-fluid">
+	        <div class="row no-gutters">
+	        	{% for data in items %}
+		          <div class="col-lg-3 col-md-4">
+		            <div class="gallery-item">
+			            	<p>Name:<b> {{data.item}} </b></p>
+			            	<p>Price:<b> {{data.price}} </b></p>
+			            	<p><img src="{{ url_for('static', filename = 'img/meds/'+data.item+'.jpeg') }}" alt=""
+			            		height="250" width="300"></p>
+			            <!-- 	<div class="text-center"><button class="appointment-btn scrollto" type="submit">Add to Cart</button></div> -->
+		            	<!-- </form> -->
+		            	<p><a href="{{ url_for('cart', id=data.i) }}" class="appointment-btn scrollto">Add to Cart</a></p>
+		            	<!-- <p><a href="{{ url_for('cart') }}"><button type="submit">Add to Cart</button></a><p> -->
+		            </div>
+		          </div>
+	         	{% endfor %}
+        	</div>
+        </div>
+    </section>
+
+{% endblock %}

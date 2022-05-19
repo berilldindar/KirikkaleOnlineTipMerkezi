@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block monthlySubs_page %}
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+thead {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+#remove{
+padding: 0;
+border: none;
+background: none;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+	$(document).on('click','#submit',function(){
+		var medicine = document.getElementById('medicine')
+		var quantity = document.getElementById('quantity')
+		medicine = medicine.value
+		quantity = quantity.value
+		table = document.getElementById('myTable')
+		var string = `<td>${medicine}</td>
+					  <td>${quantity}</td>
+					  <td id="remove" type="submit">Sil</td>`
+					  
+		table.innerHTML += string
+	})
+
+	$(document).on('click','#remove',function(){
+		$(this).parents("tr").remove()
+	})
+
+	function onSubmit(){
+		var sub = document.getElementById("submitted")
+		sub.innerHTML = `<h3>İlaç Talebiniz Alınmıştır!</h3>`
+	}
+
+</script>
+ 	<section id="contact" class="contact">
+ 		<div class="container">
+                <div class="section-title">
+                  <h2>İlaç Siparişi</h2>
+        		</div>
+		</div>
+		
+		<div class="form-group" align="center">
+			<div class="form-group">
+				<input id="medicine" name="Medicine" type="text"/>
+				<input id="quantity" name="Medicine" min=1 type="number" />
+				<button id="submit" type="submit" class="appointment-btn scrollto">Ekle</button>
+			</div>
+		</div>
+		<div class="form-group" align="center">
+			<table className="padding-table-columns">
+				<thead>
+					<th>İlaç</th>
+					<th>Adet</th>
+					<th>Sil</th>
+				</thead>
+				<tbody id = "myTable">
+					
+				</tbody>
+			</table>
+		</div>
+		<div align="center">
+			<button id="submitMed" type="submit" onclick="onSubmit()" class="appointment-btn scrollto">Kaydet</button>
+	
+		</div>
+		<div id="submitted" align="center">
+
+		</div>
+ 	</section>
+
+
+{% endblock %}
